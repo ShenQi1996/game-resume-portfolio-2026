@@ -3,9 +3,7 @@ import { useState, useCallback } from 'react'
 export function useTouchInput() {
   const [touchControls, setTouchControls] = useState({
     left: false,
-    right: false,
-    jump: false,
-    interact: false
+    right: false
   })
   
   const handleTouchStart = useCallback((action) => {

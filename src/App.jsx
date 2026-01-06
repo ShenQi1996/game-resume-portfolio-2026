@@ -63,10 +63,6 @@ function App() {
     setProgress(newProgress)
   }, [])
   
-  const handleInteract = useCallback((section) => {
-    setSelectedSection(section)
-  }, [])
-  
   const handleClosePanel = useCallback(() => {
     setSelectedSection(null)
   }, [])
@@ -90,7 +86,14 @@ function App() {
   
   const handleDownloadResume = useCallback(() => {
     if (portfolioData.contact.resumePdfUrl) {
-      window.open(portfolioData.contact.resumePdfUrl, '_blank')
+      // Create a temporary anchor element to trigger download
+      const link = document.createElement('a')
+      link.href = portfolioData.contact.resumePdfUrl
+      link.download = 'Resume.pdf' // Suggested filename for download
+      link.target = '_blank' // Fallback: open in new tab if download fails
+      document.body.appendChild(link)
+      link.click()
+      document.body.removeChild(link)
     } else {
       alert('Resume PDF URL not configured. Please update portfolioData.js')
     }
@@ -142,7 +145,6 @@ function App() {
         <div style={{ visibility: isLoading ? 'hidden' : 'visible' }}>
           <GameRoot
             onSectionDetected={handleSectionDetected}
-            onInteract={handleInteract}
             keyboardInput={keyboardInput}
             scrollInput={scrollInput}
             touchControls={touchControls}

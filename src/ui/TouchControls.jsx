@@ -27,30 +27,6 @@ export default function TouchControls({ onTouchStart, onTouchEnd }) {
           →
         </button>
       </div>
-      <div className="touch-controls__actions">
-        <button
-          className="touch-controls__button touch-controls__button--jump"
-          onTouchStart={() => onTouchStart('jump')}
-          onTouchEnd={() => onTouchEnd('jump')}
-          onMouseDown={() => onTouchStart('jump')}
-          onMouseUp={() => onTouchEnd('jump')}
-          onMouseLeave={() => onTouchEnd('jump')}
-          aria-label="Jump"
-        >
-          ↑
-        </button>
-        <button
-          className="touch-controls__button touch-controls__button--interact"
-          onTouchStart={() => onTouchStart('interact')}
-          onTouchEnd={() => onTouchEnd('interact')}
-          onMouseDown={() => onTouchStart('interact')}
-          onMouseUp={() => onTouchEnd('interact')}
-          onMouseLeave={() => onTouchEnd('interact')}
-          aria-label="Interact"
-        >
-          E
-        </button>
-      </div>
     </div>
   )
 }

@@ -89,9 +89,6 @@ export default function GameRoot({
   const sectionZonesRef = useRef(new SectionZones(portfolioData.sections))
   const animationFrameRef = useRef(null)
   const lastTimeRef = useRef(performance.now())
-  const canJumpRef = useRef(true)
-  const rightClickPressedRef = useRef(false)
-  const jumpPressedRef = useRef(false)
   const stageRef = useRef(null)
   const superheroRotationRef = useRef(0) // Smooth rotation interpolation
   const superheroFacingLeftRef = useRef(false) // Smooth facing direction
@@ -847,36 +844,15 @@ export default function GameRoot({
     }
   }, [player, pixiReady, viewportHeight])
   
-  // Mouse click handlers (only for right-click jump)
+  // Prevent context menu on right click
   useEffect(() => {
-    const handleMouseDown = (e) => {
-      // Right mouse button (button 2) - jump
-      if (e.button === 2) {
-        e.preventDefault()
-        rightClickPressedRef.current = true
-      }
-    }
-    
-    const handleMouseUp = (e) => {
-      // Reset right click on mouse up
-      if (e.button === 2) {
-        e.preventDefault()
-        rightClickPressedRef.current = false
-      }
-    }
-    
-    // Prevent context menu on right click
     const handleContextMenu = (e) => {
       e.preventDefault()
     }
     
-    window.addEventListener('mousedown', handleMouseDown)
-    window.addEventListener('mouseup', handleMouseUp)
     window.addEventListener('contextmenu', handleContextMenu)
     
     return () => {
-      window.removeEventListener('mousedown', handleMouseDown)
-      window.removeEventListener('mouseup', handleMouseUp)
       window.removeEventListener('contextmenu', handleContextMenu)
     }
   }, [])
@@ -933,20 +909,7 @@ export default function GameRoot({
           physicsRef.current.stopHorizontal(player)
         }
         
-        // Jump with right mouse click (only once per click)
-        if (rightClickPressedRef.current && !jumpPressedRef.current && canJumpRef.current && player.onGround) {
-          physicsRef.current.jump(player)
-          canJumpRef.current = false
-          jumpPressedRef.current = true // Mark as handled
-          rightClickPressedRef.current = false // Reset right click after handling
-        }
-        
-        // Reset jump flag when right click is released
-        if (!rightClickPressedRef.current) {
-          jumpPressedRef.current = false
-        }
-        
-        // Check if player pressed space to defeat the dragon (BEFORE jump check)
+        // Check if player pressed space to defeat the dragon
         // Can kill dragon between KILL_DRAGON_START and KILL_DRAGON_END when message is showing
         // Note: isInKillDragonZone is already calculated at the start of gameLoop
         if (keyboardInput && keyboardInput.isPressed(' ') && !isDragonKilled && showClickCastleMessage && isInKillDragonZone) {
@@ -967,21 +930,6 @@ export default function GameRoot({
           spaceForDragonRef.current = false
         }
         
-        // Spacebar jump (keyboard alternative - only if not defeating dragon)
-        // Only jump if space wasn't used to defeat dragon and message is not showing
-        if (keyboardInput && keyboardInput.isPressed(' ') && !jumpPressedRef.current && canJumpRef.current && player.onGround && !spaceForDragonRef.current && !showClickCastleMessage) {
-          physicsRef.current.jump(player)
-          canJumpRef.current = false
-          jumpPressedRef.current = true
-        }
-        if (keyboardInput && !keyboardInput.isPressed(' ')) {
-          jumpPressedRef.current = false
-          canJumpRef.current = true
-        }
-        
-        
-        // Click to open functionality removed - information shows automatically
-        
         // Touch controls
         if (touchControls) {
           if (touchControls.left) {
@@ -991,17 +939,6 @@ export default function GameRoot({
           } else {
             physicsRef.current.stopHorizontal(player)
           }
-          
-          if (touchControls.jump && canJumpRef.current && player.onGround) {
-            physicsRef.current.jump(player)
-            canJumpRef.current = false
-          }
-          if (!touchControls.jump) {
-            canJumpRef.current = true
-          }
-          
-          // Touch interact uses the same logic as mouse click
-          // Touch interact removed - information shows automatically
         }
       } else {
         // Quest complete - stop all player movement

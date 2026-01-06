@@ -79,7 +79,7 @@ export default function LoadingScreen({ onComplete, gameReady = false }) {
         </div>
         
         <div className="loading-screen__hint">
-          <p>Use <kbd>A</kbd> / <kbd>D</kbd> to move, <kbd>Space</kbd> to jump</p>
+          <p>Use <kbd>A</kbd> / <kbd>D</kbd> to move, <kbd>Space</kbd> to defeat the dragon</p>
         </div>
       </div>
     </div>

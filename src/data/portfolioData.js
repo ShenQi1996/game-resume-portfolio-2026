@@ -123,7 +123,7 @@ export const portfolioData = {
       github: "https://github.com/ShenQi1996",
       linkedin: "https://www.linkedin.com/in/shenqi1993"
     },
-    resumePdfUrl: "/resume.pdf"
+    resumePdfUrl: "/Resume.docx.pdf"
   },
   
   theme: {

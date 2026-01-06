@@ -32,16 +32,13 @@ An interactive, side-scrolling platformer-style resume portfolio built with Reac
 ### Desktop
 - **A** or **←** : Move left
 - **D** or **→** : Move right
-- **Space** : Jump / Defeat dragon (when in kill zone) / Switch to scroll view (after quest complete)
+- **Space** : Defeat dragon (when in kill zone) / Switch to scroll view (after quest complete)
 - **Mouse Scroll** : Alternative movement control (scroll up/down to move)
-- **E** : Interact with section markers
 - **Escape** : Close panel
 
 ### Mobile
 - Touch buttons appear at the bottom of the screen
 - Left/Right arrows for movement
-- Up arrow for jump
-- E button for interaction
 
 ### Quest Complete
 - After completing the quest (defeating the dragon), press **Space** to switch to scroll view
@@ -240,7 +237,7 @@ contact: {
 
 1. **Level Width**: Adjust `LEVEL_WIDTH` in `src/game/constants.js` if you add many sections
 2. **Dragon Checkpoints**: Modify `KILL_DRAGON_START` and `KILL_DRAGON_END` in `src/game/constants.js` to change when players can defeat the dragon
-3. **Physics**: Tweak gravity, jump power, and friction in `src/game/systems/Physics.js`
+3. **Physics**: Tweak gravity and friction in `src/game/systems/Physics.js`
 4. **Camera Smoothing**: Adjust `smoothing` value in `src/game/systems/Camera.js`
 5. **Parallax Speed**: Modify layer speeds in the parallax initialization
 6. **Background Colors**: Edit section `bgColor` values in `portfolioData.js` to customize the time-of-day color transitions
