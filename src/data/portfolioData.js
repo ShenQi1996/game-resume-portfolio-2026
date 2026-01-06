@@ -11,7 +11,7 @@ export const portfolioData = {
     about: "I do not fight with a sword. I fight with calm focus and clean execution. When the dragon shows up, it does not just burn villages, it breaks systems, scrambles truth, and turns simple paths into traps. My job is to bring order back and protect the people who cannot protect themselves.",
     skills: "My powers look like tools to most people, but in the kingdom they are spells. Python and Django let me forge strong foundations. React lets me shape fast clean screens that do not confuse the villagers. REST and GraphQL let me connect distant towns that stopped trusting each other. SQL tuning lets me open blocked roads and remove bottlenecks. Agile discipline keeps my mission moving when everything feels urgent.",
     experience: "I learned to lead under pressure at iPacket, where I ran multiple missions at the same time, kept scope and deliverables aligned, built project plans with milestones and dependencies, watched risk before it exploded, and kept everyone informed so the kingdom did not fall into panic. I also tightened Jira and Atlassian workflows so the team could see clearly and move faster.\n\nBefore that in Brooklyn at BHMedWear, I built SQL tracking systems to protect accuracy, helped launch a Shopify internal platform to improve operations, and used Google Analytics to measure what worked and what failed. Those were my early hero trials.",
-    projects: "In the game, my work becomes artifacts I carry into battle. The Tracking Ledger exposes hidden errors before they spread. The Merchant Portal speeds up the town so supplies arrive in time. The Visibility Beacon reveals the dragons weak points by showing what is missing, what is slow, and what is about to break. When the princess cries for help, these are the tools that let me reach her before the fire does.",
+    projects: "In the game, my work becomes artifacts I carry into battle. The Next LeapFit portal connects the kingdom's health services, making fit testing accessible to all. The E-Card system protects vital information, ensuring test results reach the right hands safely. These tools help me serve the people and keep the kingdom healthy and secure.",
     education: "My origin is Computer Science at SUNY University at Buffalo, and I am leveling up with a Master of Science in Information Technology at Florida Institute of Technology, expected March 2026. That is why I keep getting stronger each chapter."
   },
   
@@ -70,30 +70,21 @@ export const portfolioData = {
   
   projects: [
     {
-      title: "Interactive Portfolio",
-      description: "A game-style portfolio built with React and PixiJS featuring platformer mechanics and smooth animations.",
-      tech: ["React", "PixiJS", "SCSS", "JavaScript"],
+      title: "Next LeapFit - Secure Fit LLC Landing Page",
+      description: "A professional Next.js landing page for Secure Fit LLC, a respiratory fit testing service company. Features responsive design, Redux state management, and modern UI/UX.",
+      tech: ["Next.js", "React", "Redux Toolkit", "Sass", "JavaScript"],
       links: {
-        live: "https://example.com",
-        github: "https://github.com/example"
+        live: "https://next-leap-fit.vercel.app/",
+        github: "https://github.com/ShenQi1996/Next_LeapFit"
       }
     },
     {
-      title: "Healthcare Web Applications",
-      description: "Full-stack healthcare applications built with Python, Django, React, and SQL Server, focusing on performance tuning and regulated data workflows.",
-      tech: ["Python", "Django", "React", "SQL Server", "REST API", "GraphQL"],
+      title: "2026 Fit Testing Results E-Card",
+      description: "A comprehensive fit testing results e-card application with Firebase integration, email functionality, and secure data management for respiratory fit testing results.",
+      tech: ["JavaScript", "Firebase", "EmailJS", "CSS", "HTML"],
       links: {
-        live: "https://example.com",
-        github: "https://github.com/example"
-      }
-    },
-    {
-      title: "SaaS Integration Solutions",
-      description: "High-impact SaaS and integration solutions designed and executed in collaboration with cross-functional teams.",
-      tech: ["React", "Node.js", "AWS", "Docker", "Kubernetes"],
-      links: {
-        live: "https://example.com",
-        github: "https://github.com/example"
+        live: "https://2026-fit-testing-results-e-card.vercel.app/",
+        github: "https://github.com/ShenQi1996/2026-Fit-Testing-Results-E-Card"
       }
     }
   ],
