@@ -1,0 +1,19 @@
+@import './variables';
+
+.app {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+  
+  // Overflow is controlled by body class in globals.scss
+}
+
+.game-root {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 1;
+}
+

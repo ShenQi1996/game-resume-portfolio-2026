@@ -1,0 +1,78 @@
+@import '../styles/variables';
+
+.hud {
+  position: fixed;
+  top: var(--spacing-md);
+  right: var(--spacing-md);
+  z-index: 100;
+  background: #FFF8E7; // Cream/paper color matching notebook theme
+  padding: var(--spacing-md);
+  border-radius: var(--border-radius);
+  backdrop-filter: blur(10px);
+  border: 2px solid #8B7355; // Brown paper edge
+  box-shadow: 3px 3px 8px rgba(0, 0, 0, 0.2); // Paper shadow
+  min-width: 200px;
+  
+  // Red margin line on the left (like notebook)
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 100%;
+    background: rgba(220, 20, 60, 0.6); // Red margin color
+  }
+  
+  // Blue notebook lines background
+  background-image: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 19px,
+    rgba(65, 105, 225, 0.2) 19px,
+    rgba(65, 105, 225, 0.2) 20px
+  );
+  
+  &__section {
+    margin-bottom: var(--spacing-md);
+  }
+  
+  &__label {
+    display: block;
+    font-size: var(--font-size-small);
+    color: #2C2C2C; // Dark text for notebook theme
+    margin-bottom: var(--spacing-xs);
+    font-weight: 600;
+    font-family: 'Georgia, serif'; // Match notebook font
+  }
+  
+  &__value {
+    display: block;
+    font-size: var(--font-size-base);
+    color: #DC143C; // Red color matching margin line
+    font-weight: bold;
+    font-family: 'Georgia, serif'; // Match notebook font
+    letter-spacing: 0.5px;
+  }
+  
+  &__progress {
+    margin-top: var(--spacing-md);
+  }
+  
+  &__progress-bar {
+    width: 100%;
+    height: 10px;
+    background: rgba(139, 115, 85, 0.2); // Light brown like pencil/paper
+    border-radius: 5px;
+    overflow: hidden;
+    margin: var(--spacing-xs) 0;
+    border: 1px solid rgba(139, 115, 85, 0.4); // Brown border
+  }
+  
+  &__progress-fill {
+    height: 100%;
+    background: #DC143C; // Red color matching margin line
+    transition: width 0.3s ease;
+  }
+}
+

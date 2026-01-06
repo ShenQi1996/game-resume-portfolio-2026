@@ -1,0 +1,63 @@
+@import '../styles/variables';
+
+.touch-controls {
+  position: fixed;
+  bottom: var(--spacing-md);
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 var(--spacing-md);
+  pointer-events: none;
+  
+  &__movement,
+  &__actions {
+    display: flex;
+    gap: var(--spacing-sm);
+    pointer-events: auto;
+  }
+  
+  &__button {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: rgba(0, 0, 0, 0.7);
+    color: var(--color-text);
+    border: 2px solid var(--color-text);
+    font-size: var(--font-size-xl);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(10px);
+    transition: var(--transition);
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+    
+    &:active {
+      background: rgba(255, 255, 255, 0.3);
+      transform: scale(0.95);
+    }
+    
+    &--left,
+    &--right {
+      background: rgba(74, 144, 226, 0.7);
+    }
+    
+    &--jump {
+      background: rgba(80, 200, 120, 0.7);
+    }
+    
+    &--interact {
+      background: rgba(255, 107, 107, 0.7);
+    }
+  }
+}
+
+// Hide on desktop
+@media (min-width: 768px) {
+  .touch-controls {
+    display: none;
+  }
+}
+
